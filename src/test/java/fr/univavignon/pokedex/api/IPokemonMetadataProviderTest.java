@@ -36,7 +36,7 @@ public class IPokemonMetadataProviderTest {
     }
 
     @Test
-    public void getPokemonMetadata() throws PokedexException {
+    public void shouldGetPokemonMetadata() throws PokedexException {
 
         // given
         int bulbizarreIndex = 0;
