@@ -31,6 +31,6 @@ public class IPokedexFactoryTest {
 
 
         //then
-        assertEquals(Mockito.mock(IPokedex.class).getClass(),pokedexFactory.createPokedex(Mockito.mock(IPokemonMetadataProvider.class),Mockito.mock(IPokemonFactory.class)).getClass());
+        assertEquals(Mockito.mock(Pokedex.class).getClass(),pokedexFactory.createPokedex(Mockito.mock(IPokemonMetadataProvider.class),Mockito.mock(IPokemonFactory.class)).getClass());
     }
 }
