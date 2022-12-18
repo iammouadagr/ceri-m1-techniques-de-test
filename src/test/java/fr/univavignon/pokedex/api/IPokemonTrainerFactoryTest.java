@@ -23,7 +23,7 @@ public class IPokemonTrainerFactoryTest {
         // given
         IPokedexFactory pokedexFactory = Mockito.mock(IPokedexFactory.class);
         Team mystic = Team.MYSTIC;
-        IPokedex pokedex = Mockito.mock(IPokedex.class);
+        Pokedex pokedex = Mockito.mock(Pokedex.class);
         PokemonTrainer pokemonTrainer = new PokemonTrainer("Arcanine",mystic,pokedex);
 
         // when

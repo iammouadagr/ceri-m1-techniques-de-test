@@ -25,7 +25,7 @@ public class IPokedexFactoryTest {
 
         //when
         Mockito
-                .doReturn(Mockito.mock(IPokedex.class))
+                .doReturn(Mockito.mock(Pokedex.class))
                 .when(this.pokedexFactory)
                 .createPokedex(Mockito.any(pokemonMetadataProvider.getClass()),Mockito.any(pokemonFactory.getClass()));
 
