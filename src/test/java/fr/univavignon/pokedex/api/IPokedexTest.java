@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -53,7 +54,7 @@ public class IPokedexTest {
     }
 
     @Test
-    public void ShouldReturnSize(){
+    public void shouldReturnSize(){
 
         //when
         Mockito.doReturn(this.pokemons.size()).when(this.pokedex).size();
@@ -63,7 +64,7 @@ public class IPokedexTest {
     }
 
     @Test
-    public void ShouldAddPokemon() {
+    public void shouldAddPokemon() {
 
         // giving
         Pokemon newPokemon = new Pokemon(
@@ -111,5 +112,24 @@ public class IPokedexTest {
         assertEquals(bulbizarre,this.pokedex.getPokemon(0));
         assertThrows(PokedexException.class, () -> this.pokedex.getPokemon(firstInvalidIndex));
         assertThrows(PokedexException.class, () -> this.pokedex.getPokemon(secondInvalidIndex));
+    }
+
+    @Test
+    public void shouldGetPokemons(){
+
+        // given
+        List<Pokemon> unmodifiablePokemons = Collections.unmodifiableList(this.pokemons);
+
+        // when
+        Mockito.doReturn(unmodifiablePokemons).when(this.pokedex).getPokemons();
+
+        // then
+        // Class Name check
+        assertEquals(unmodifiablePokemons.getClass(),this.pokedex.getPokemons().getClass());
+        // Size check
+        assertEquals(unmodifiablePokemons.size(),this.pokedex.getPokemons().size());
+        // Content check
+        assertEquals(unmodifiablePokemons.get(0),this.pokedex.getPokemons().get(0));
+        assertEquals(unmodifiablePokemons.get(1),this.pokedex.getPokemons().get(1));
     }
 }
