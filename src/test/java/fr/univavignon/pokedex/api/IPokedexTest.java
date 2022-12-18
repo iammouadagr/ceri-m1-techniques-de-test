@@ -13,7 +13,7 @@ import static org.junit.Assert.assertThrows;
 
 public class IPokedexTest {
 
-    private IPokedex pokedex;
+    private Pokedex pokedex;
     private List<Pokemon> pokemons;
     private Pokemon bulbizarre;
     private Pokemon aquali;
@@ -21,7 +21,7 @@ public class IPokedexTest {
     @Before
     public void setUp(){
 
-        this.pokedex = Mockito.mock(IPokedex.class);
+        this.pokedex = Mockito.mock(Pokedex.class);
         pokemons = new ArrayList<>();
         bulbizarre = new Pokemon(0,
                 "Bulbizarre",
