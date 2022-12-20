@@ -1,0 +1,15 @@
+/Users/mouadaguirar/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/Pokedex.java
+/Users/mouadaguirar/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/PokemonFactory.java
+/Users/mouadaguirar/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/IPokedex.java
+/Users/mouadaguirar/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/IPokedexFactory.java
+/Users/mouadaguirar/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/PokemonMetadata.java
+/Users/mouadaguirar/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/IPokemonFactory.java
+/Users/mouadaguirar/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/PokemonMetadataProvider.java
+/Users/mouadaguirar/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/Pokemon.java
+/Users/mouadaguirar/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/Team.java
+/Users/mouadaguirar/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/PokedexFactory.java
+/Users/mouadaguirar/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/PokedexException.java
+/Users/mouadaguirar/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/IPokemonTrainerFactory.java
+/Users/mouadaguirar/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/PokemonTrainer.java
+/Users/mouadaguirar/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/PokemonComparators.java
+/Users/mouadaguirar/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/IPokemonMetadataProvider.java

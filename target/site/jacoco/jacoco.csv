@@ -1,0 +1,12 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+Techniques de test,fr.univavignon.pokedex.api,Team,0,21,0,0,0,4,0,1,0,1
+Techniques de test,fr.univavignon.pokedex.api,PokemonFactory,0,43,0,2,0,16,0,3,0,2
+Techniques de test,fr.univavignon.pokedex.api,PokedexException,0,4,0,0,0,2,0,1,0,1
+Techniques de test,fr.univavignon.pokedex.api,PokemonMetadataProvider,0,68,0,8,0,13,0,6,0,2
+Techniques de test,fr.univavignon.pokedex.api,Pokedex,0,81,0,0,0,21,0,9,0,9
+Techniques de test,fr.univavignon.pokedex.api,PokemonMetadata,0,33,0,0,0,12,0,6,0,6
+Techniques de test,fr.univavignon.pokedex.api,PokemonTrainer,0,21,0,0,0,8,0,4,0,4
+Techniques de test,fr.univavignon.pokedex.api,PokedexFactory,0,9,0,0,0,2,0,2,0,2
+Techniques de test,fr.univavignon.pokedex.api,PokemonComparators,0,41,0,0,0,8,0,3,0,3
+Techniques de test,fr.univavignon.pokedex.api,Pokemon,0,38,0,0,0,12,0,6,0,6
+Techniques de test,fr.univavignon.pokedex.imp,RocketPokemonFactory,105,0,6,0,26,0,7,0,4,0
