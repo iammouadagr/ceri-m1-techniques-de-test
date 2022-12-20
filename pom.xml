@@ -107,7 +107,7 @@
                             <goal>badges</goal>
                         </goals>
                         <configuration>
-                            <outputDir>img/badges</outputDir>
+                            <outputDir>target/site/badges</outputDir>
                             <inputFiles>
                                 <inputFile>target/checkstyle-result.xml</inputFile>
                             </inputFiles>
