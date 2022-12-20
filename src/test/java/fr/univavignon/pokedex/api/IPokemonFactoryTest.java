@@ -68,5 +68,27 @@ public class IPokemonFactoryTest {
                 aqualiHp,
                 aqualiDust,
                 aqualiCandy).getIndex());
+        assertEquals(bulbizarre.getHp(),pokemonFactory.createPokemon(
+                bulbizarreIndex,
+                bulbizarreCp,
+                bulbizarreHp,
+                bulbizarreDust,
+                bulbizarreCandy).getHp());
+        assertEquals(aquali.getDust(),pokemonFactory.createPokemon(aqualiIndex,
+                aqualiCp,
+                aqualiHp,
+                aqualiDust,
+                aqualiCandy).getDust());
+        assertEquals(bulbizarre.getCandy(),pokemonFactory.createPokemon(
+                bulbizarreIndex,
+                bulbizarreCp,
+                bulbizarreHp,
+                bulbizarreDust,
+                bulbizarreCandy).getCandy());
+        assertEquals(aquali.getIv(),pokemonFactory.createPokemon(aqualiIndex,
+                aqualiCp,
+                aqualiHp,
+                aqualiDust,
+                aqualiCandy).getIv(),0);
     }
 }
