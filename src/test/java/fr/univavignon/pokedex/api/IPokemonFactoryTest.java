@@ -3,6 +3,7 @@ package fr.univavignon.pokedex.api;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 
 public class IPokemonFactoryTest {
@@ -55,8 +56,18 @@ public class IPokemonFactoryTest {
         int aqualiDust = 5000;
         int aqualiCandy= 4;
 
+        //
+        int invalidIndex = -1;
 
         // then
+
+        assertThrows(NullPointerException.class, () -> pokemonFactory.createPokemon(
+                invalidIndex,
+                bulbizarreCp,
+                bulbizarreHp,
+                bulbizarreDust,
+                bulbizarreCandy));
+
         assertEquals(bulbizarre.getIndex(),pokemonFactory.createPokemon(
                 bulbizarreIndex,
                 bulbizarreCp,

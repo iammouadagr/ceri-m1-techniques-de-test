@@ -30,7 +30,6 @@ public class PokemonFactory implements IPokemonFactory{
                 case 133 -> iv = 100.0;
             }
         } catch (PokedexException e) {
-            e.printStackTrace();
             return null;
         }
 
