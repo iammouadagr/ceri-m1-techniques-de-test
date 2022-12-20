@@ -7,13 +7,23 @@ import java.util.List;
 
 public class Pokedex implements IPokedex{
 
-    private final List<Pokemon> pokemonList;
+    private final List<Pokemon> pokemonList = new ArrayList<>();
+    /**
+     * PokemonMetaDataProvider for pokedex.
+     */
+    private IPokemonMetadataProvider metadataProvider;
+    /**
+     * PokemonFactory for pokedex.
+     */
+    private IPokemonFactory pokemonFactory;
 
     public Pokedex() {
-        pokemonList = new ArrayList<>();
+    }
 
-
-
+    public Pokedex(IPokemonMetadataProvider metadataProvider,
+                   IPokemonFactory pokemonFactory) {
+        this.metadataProvider = metadataProvider;
+        this.pokemonFactory = pokemonFactory;
     }
     /**
      * Returns the number of pokemon this pokedex contains.
