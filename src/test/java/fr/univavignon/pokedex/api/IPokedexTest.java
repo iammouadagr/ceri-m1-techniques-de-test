@@ -153,4 +153,15 @@ public class IPokedexTest {
         assertEquals(bulbizarre,this.pokedex.getPokemons(cpComparator).get(0));
 
     }
+
+    @Test
+    public void canCreatePokemon(){
+        assertEquals(aquali.getName(), pokedex.createPokemon(133, 2729, 202, 5000, 4).getName());
+    }
+
+    @Test
+    public void shouldGetPokemonMetadata() throws PokedexException {
+        assertThrows(PokedexException.class, () -> pokedex.getPokemonMetadata(-1));
+        assertEquals(aquali.getName(), pokedex.getPokemonMetadata(133).getName());
+    }
 }
