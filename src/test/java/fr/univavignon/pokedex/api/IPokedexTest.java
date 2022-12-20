@@ -2,7 +2,6 @@ package fr.univavignon.pokedex.api;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -21,7 +20,7 @@ public class IPokedexTest {
     @Before
     public void setUp(){
 
-        this.pokedex = Mockito.mock(Pokedex.class);
+        pokedex = new Pokedex();
         pokemons = new ArrayList<>();
         bulbizarre = new Pokemon(0,
                 "Bulbizarre",
@@ -33,7 +32,7 @@ public class IPokedexTest {
                 4000,
                 4,
                 56.0);
-        pokemons.add(bulbizarre);
+        pokedex.addPokemon(bulbizarre);
 
         aquali =  new Pokemon(
                 133,
@@ -48,7 +47,10 @@ public class IPokedexTest {
                 100.0
         );
 
-        pokemons.add(aquali);
+        this.pokedex.addPokemon(aquali);
+
+        pokemons = pokedex.getPokemons();
+
 
 
     }
@@ -56,11 +58,8 @@ public class IPokedexTest {
     @Test
     public void shouldReturnSize(){
 
-        //when
-        Mockito.doReturn(this.pokemons.size()).when(this.pokedex).size();
-
         //then
-        assertEquals(2,this.pokedex.size());
+        assertEquals(2,pokemons.size());
     }
 
     @Test
@@ -80,36 +79,29 @@ public class IPokedexTest {
                 100.0
         );
 
-        // when
-        Mockito.doReturn(this.pokemons.size()+1).when(this.pokedex).addPokemon(newPokemon);
 
         //then
-        assertEquals(3,this.pokedex.addPokemon(newPokemon));
+        assertEquals(pokemons.size()+1 ,this.pokedex.addPokemon(newPokemon));
     }
 
     @Test
     public void canGetPokemon() throws PokedexException {
 
         // giving
-        int aqualiIndex = 133;
+        int aqualiIndex = 1;
         int bulbizarreIndex = 0;
         int firstInvalidIndex = 170;
         int secondInvalidIndex = -20;
 
-        //when
-        Mockito.doReturn(aquali)
-                .when(this.pokedex)
-                .getPokemon(aqualiIndex);
-        Mockito.doReturn(bulbizarre)
-                .when(this.pokedex)
-                .getPokemon(bulbizarreIndex);
-        Mockito.doThrow(new PokedexException("invalid given index"))
-                .when(this.pokedex)
-                .getPokemon(Mockito.intThat(i -> i < 0 || i > 150));
-
         //then
-        assertEquals(aquali,this.pokedex.getPokemon(133));
-        assertEquals(bulbizarre,this.pokedex.getPokemon(0));
+        assertEquals(aquali,this.pokedex.getPokemon(aqualiIndex));
+        assertEquals(bulbizarre,this.pokedex.getPokemon(bulbizarreIndex));
+        assertEquals(aquali.getName(),this.pokedex.getPokemon(aqualiIndex).getName());
+        assertEquals(bulbizarre.getAttack(),this.pokedex.getPokemon(bulbizarreIndex).getAttack());
+        assertEquals(aquali.getDefense(),this.pokedex.getPokemon(aqualiIndex).getDefense());
+        assertEquals(bulbizarre.getStamina(),this.pokedex.getPokemon(bulbizarreIndex).getStamina());
+
+
         assertThrows(PokedexException.class, () -> this.pokedex.getPokemon(firstInvalidIndex));
         assertThrows(PokedexException.class, () -> this.pokedex.getPokemon(secondInvalidIndex));
     }
@@ -119,9 +111,6 @@ public class IPokedexTest {
 
         // given
         List<Pokemon> unmodifiablePokemons = Collections.unmodifiableList(this.pokemons);
-
-        // when
-        Mockito.doReturn(unmodifiablePokemons).when(this.pokedex).getPokemons();
 
         // then
         // Class Name check
@@ -151,14 +140,6 @@ public class IPokedexTest {
         cpSortedPokemons.sort(cpComparator);
 
         List<Pokemon> expectedUnmodifiableList = Collections.unmodifiableList(new ArrayList<>());
-
-
-
-        // when
-
-        Mockito.doReturn(Collections.unmodifiableList(nameSortedPokemons)).when(this.pokedex).getPokemons(nameComparator);
-        Mockito.doReturn(Collections.unmodifiableList(indexSortedPokemons)).when(this.pokedex).getPokemons(indexComparator);
-        Mockito.doReturn(Collections.unmodifiableList(cpSortedPokemons)).when(this.pokedex).getPokemons(cpComparator);
 
         // then
 

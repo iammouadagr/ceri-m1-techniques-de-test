@@ -11,33 +11,9 @@ public class Pokedex implements IPokedex{
 
     public Pokedex() {
         pokemonList = new ArrayList<>();
-        Pokemon  bulbizarre = new Pokemon(0,
-                "Bulbizarre",
-                126,
-                126,
-                90,
-                613,
-                64,
-                4000,
-                4,
-                56.0
-        );
 
-        Pokemon  aquali =  new Pokemon(
-                133,
-                "Aquali",
-                186,
-                186,
-                260,
-                2729,
-                202,
-                5000,
-                4,
-                100.0
-        );
 
-        pokemonList.add(bulbizarre);
-        pokemonList.add(aquali);
+
     }
     /**
      * Returns the number of pokemon this pokedex contains.
@@ -59,7 +35,7 @@ public class Pokedex implements IPokedex{
     @Override
     public int addPokemon(Pokemon pokemon) {
         pokemonList.add(pokemon);
-        return size()+1;
+        return this.size();
     }
 
     /**
