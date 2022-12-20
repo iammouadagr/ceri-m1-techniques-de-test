@@ -2,7 +2,6 @@ package fr.univavignon.pokedex.api;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
 import static org.junit.Assert.assertEquals;
 
 
@@ -14,7 +13,7 @@ public class IPokemonFactoryTest {
 
     @Before
     public void setUp(){
-        this.pokemonFactory = Mockito.mock(IPokemonFactory.class);
+        this.pokemonFactory = new PokemonFactory();
         this.bulbizarre = new Pokemon(
                 0,
                 "Bulbizarre",
@@ -56,34 +55,18 @@ public class IPokemonFactoryTest {
         int aqualiDust = 5000;
         int aqualiCandy= 4;
 
-        // when
-        Mockito.when(pokemonFactory.createPokemon(
-                        bulbizarreIndex,
-                        bulbizarreCp,
-                        bulbizarreHp,
-                        bulbizarreDust,
-                        bulbizarreCandy))
-                .thenReturn(bulbizarre);
-
-
-        Mockito.when(pokemonFactory.createPokemon(aqualiIndex,
-                        aqualiCp,
-                        aqualiHp,
-                        aqualiDust,
-                        aqualiCandy))
-                .thenReturn(aquali);
 
         // then
-        assertEquals(bulbizarre,pokemonFactory.createPokemon(
+        assertEquals(bulbizarre.getIndex(),pokemonFactory.createPokemon(
                 bulbizarreIndex,
                 bulbizarreCp,
                 bulbizarreHp,
                 bulbizarreDust,
-                bulbizarreCandy));
-        assertEquals(aquali,pokemonFactory.createPokemon(aqualiIndex,
+                bulbizarreCandy).getIndex());
+        assertEquals(aquali.getIndex(),pokemonFactory.createPokemon(aqualiIndex,
                 aqualiCp,
                 aqualiHp,
                 aqualiDust,
-                aqualiCandy));
+                aqualiCandy).getIndex());
     }
 }
