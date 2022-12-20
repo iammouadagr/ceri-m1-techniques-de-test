@@ -2,7 +2,6 @@ package fr.univavignon.pokedex.api;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 
@@ -17,7 +16,7 @@ public class IPokemonMetadataProviderTest {
     @Before
     public void setUp(){
 
-        this.metadataProvider = Mockito.mock(IPokemonMetadataProvider.class);
+        this.metadataProvider = new PokemonMetadataProvider();
         this.bulbizarre = new PokemonMetadata(
                 0,
                 "Bulbizarre",
@@ -45,20 +44,10 @@ public class IPokemonMetadataProviderTest {
         int secondInvalidIndex = 160;
 
 
-        // when
-        Mockito.doReturn(this.bulbizarre)
-                .when(metadataProvider)
-                .getPokemonMetadata(bulbizarreIndex);
-        Mockito.doReturn(this.aquali)
-                .when(metadataProvider)
-                .getPokemonMetadata(aqualiIndex);
-        Mockito.doThrow(new PokedexException("invalid given index"))
-                .when(metadataProvider)
-                .getPokemonMetadata(Mockito.intThat(i -> i < 0 || i > 150));
 
         // then
-        assertEquals(this.bulbizarre,metadataProvider.getPokemonMetadata(bulbizarreIndex));
-        assertEquals(this.aquali,metadataProvider.getPokemonMetadata(aqualiIndex));
+        assertEquals(this.bulbizarre.getIndex(),metadataProvider.getPokemonMetadata(bulbizarreIndex).getIndex());
+        assertEquals(this.aquali.getDefense(),metadataProvider.getPokemonMetadata(aqualiIndex).getDefense());
         assertThrows(PokedexException.class, () -> metadataProvider.getPokemonMetadata(firstInvalidIndex));
         assertThrows(PokedexException.class, () -> metadataProvider.getPokemonMetadata(secondInvalidIndex));
 
