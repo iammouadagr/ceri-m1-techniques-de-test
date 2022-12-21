@@ -50,10 +50,10 @@ jobs:
           command: |
             npm install -g --silent gh-pages@2.0.1
             git config user.email "mouad.aguirar@alumni.univ-avignon.fr"
-            git config user.name "MouadAguirar"
+            git config user.name "iammouadagr"
       - add_ssh_keys:
           fingerprints:
-            -"36:3e:96:6a:7d:23:3b:c7:c2:36:d1:c3:fc:d8:56:4f"
+            - "36:3e:96:6a:7d:23:3b:c7:c2:36:d1:c3:fc:d8:56:4f"
       - run:
           name: Deploy docs to gh-pages branch
           command: gh-pages --dist docs/
