@@ -17,9 +17,57 @@ jobs:
           command: mvn test
       - codecov/upload:
           file: /target/site/jacoco/jacoco.xml
+  docs:
+    docker:
+      - image: cimg/base:2021.04
+    steps:
+      - checkout
+      - run:
+          name: install1
+          command: sudo add-apt-repository ppa:openjdk-r/ppa
+      - run:
+          name: install2
+          command: sudo apt-get update
+      - run:
+          name: install3
+          command: sudo apt-get install openjdk-17-jdk-headless -y
+      - run:
+          name: Build-docs
+          command: javadoc src/main/java/fr/univavignon/pokedex/api/* -d docs
+      - persist_to_workspace:
+          root: .
+          paths: docs
+
+    docs-deploy:
+      docker:
+        - image: node:8.10.0
+      steps:
+        - checkout
+        - attach_workspace:
+            at: docs/
+        - run:
+            name: Install and configure dependencies
+            command: |
+              npm install -g --silent gh-pages@2.0.1
+              git config user.email "mouad.aguirar@alumni.univ-avignon.fr"
+              git config user.name "MouadAguirar"
+        - add_ssh_keys:
+            fingerprints:
+              -"36:3e:96:6a:7d:23:3b:c7:c2:36:d1:c3:fc:d8:56:4f"
+        - run:
+            name: Deploy docs to gh-pages branch
+            command: gh-pages --dist docs/
 
 workflows:
   continuous-integration:
     jobs:
       - build-and-test
+      - docs
+          - docs-deploy:
+          requires:
+            - build-and-test
+            - docs
+          filters:
+            branches:
+              only: master
 
