@@ -59,11 +59,12 @@ jobs:
           command: gh-pages --dist docs/
 
 workflows:
+  version: 2
   continuous-integration:
     jobs:
       - build-and-test
       - docs
-          - docs-deploy:
+      - docs-deploy:
           requires:
             - build-and-test
             - docs
