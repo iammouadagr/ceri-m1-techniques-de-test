@@ -30,7 +30,7 @@ jobs:
           command: sudo apt-get update
       - run:
           name: install3
-          command: sudo apt-get install openjdk-17-jdk-headless -y
+          command: sudo apt-get install openjdk-11-jdk-headless -y
       - run:
           name: Build-docs
           command: javadoc src/main/java/fr/univavignon/pokedex/api/* -d docs
