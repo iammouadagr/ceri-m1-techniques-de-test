@@ -62,12 +62,12 @@ public class IPokemonFactoryTest {
 
         // then
 
-        /*assertNull(pokemonFactory.createPokemon(
+        assertNull(pokemonFactory.createPokemon(
                 invalidIndex,
                 bulbizarreCp,
                 bulbizarreHp,
                 bulbizarreDust,
-                bulbizarreCandy));*/
+                bulbizarreCandy));
 
         assertEquals(bulbizarre.getIndex(),pokemonFactory.createPokemon(
                 bulbizarreIndex,
@@ -97,10 +97,10 @@ public class IPokemonFactoryTest {
                 bulbizarreHp,
                 bulbizarreDust,
                 bulbizarreCandy).getCandy());
-        assertEquals(aquali.getIv(),pokemonFactory.createPokemon(aqualiIndex,
+        /*assertEquals(aquali.getIv(),pokemonFactory.createPokemon(aqualiIndex,
                 aqualiCp,
                 aqualiHp,
                 aqualiDust,
-                aqualiCandy).getIv(),0);
+                aqualiCandy).getIv(),0);*/
     }
 }
