@@ -18,3 +18,4 @@
 | TP3 : Pekéunit                  | ✔ Done |           
 | TP4 : 100% IV                   | ✔ Done | 
 | TP5 : Bulbapedia                | ✔ Done | 
+| TP6 : Giovanni's touch          | ✔ Done | 
