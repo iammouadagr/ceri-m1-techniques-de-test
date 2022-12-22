@@ -1,6 +1,5 @@
 package fr.univavignon.pokedex.api;
 
-import fr.univavignon.pokedex.imp.RocketPokemonFactory;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,7 +14,7 @@ public class IPokemonFactoryTest {
 
     @Before
     public void setUp(){
-        this.pokemonFactory = new RocketPokemonFactory();
+        this.pokemonFactory = new PokemonFactory();
         this.bulbizarre = new Pokemon(
                 0,
                 "Bulbizarre",
@@ -62,12 +61,12 @@ public class IPokemonFactoryTest {
 
         // then
 
-        /*assertNull(pokemonFactory.createPokemon(
+        assertNull(pokemonFactory.createPokemon(
                 invalidIndex,
                 bulbizarreCp,
                 bulbizarreHp,
                 bulbizarreDust,
-                bulbizarreCandy));*/
+                bulbizarreCandy));
 
         assertEquals(bulbizarre.getIndex(),pokemonFactory.createPokemon(
                 bulbizarreIndex,
@@ -97,10 +96,10 @@ public class IPokemonFactoryTest {
                 bulbizarreHp,
                 bulbizarreDust,
                 bulbizarreCandy).getCandy());
-        /*assertEquals(aquali.getIv(),pokemonFactory.createPokemon(aqualiIndex,
+        assertEquals(aquali.getIv(),pokemonFactory.createPokemon(aqualiIndex,
                 aqualiCp,
                 aqualiHp,
                 aqualiDust,
-                aqualiCandy).getIv(),0);*/
+                aqualiCandy).getIv(),0);
     }
 }
